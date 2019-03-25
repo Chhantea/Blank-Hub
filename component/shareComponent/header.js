@@ -1,6 +1,5 @@
 import React,{ Component } from 'react';
 import {StyleSheet,Text,View,TouchableOpacity,Image} from 'react-native';
-import { Actions } from 'react-native-router-flux'; // New code 
 
 export default class Header extends Component{
 	_onPressButton(){
@@ -13,8 +12,8 @@ export default class Header extends Component{
 		return(
 				<View style={style.container}>
 					<View style={style.content}>
-					<Text  onPress={() => Actions.drawerOpen()} >this is header</Text>
-					<TouchableOpacity onPress={() => Actions.drawer()}>
+					<Text  onPress={this._onPressButton()} >this is header</Text>
+					<TouchableOpacity onPress={() => console.log("press")}>
 			          <Image
 			            source={{uri:'https://cdn3.iconfinder.com/data/icons/mobile-friendly-ui/100/menu-512.png'}}
 			            style={{ width: 25, height: 25}}

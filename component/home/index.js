@@ -1,16 +1,29 @@
 import React,{Component} from 'react';
-import {StyleSheet,Text,View} from 'react-native';
-import { Actions } from 'react-native-router-flux'; // New code
+import {StyleSheet,Text,View,Button} from 'react-native';
 export default class HomeIndex extends Component {
+    static navigationOptions = {
+        title: 'Home',
+    };
 	render(){
 		return(
 		<View style={styles.container}>
 	      <Text
 	        style={styles.welcome}
-	        onPress={() => Actions.another()} // New Code
+	       // New Code
+              onPress={()=>this.props.navigation.navigate('Another')}
 	      >
 	        Home Screen is this
 	      </Text>
+            <Button
+                title="Go to Details"
+                onPress={() => {
+                    /* 1. Navigate to the Details route with params */
+                    this.props.navigation.navigate('Another', {
+                        itemId: 86,
+                        otherParam: 'anything you want here',
+                    });
+                }}
+            />
          </View>
 			)
 	}
