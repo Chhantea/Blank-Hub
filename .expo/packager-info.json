@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 2819,
-  "expoServerNgrokUrl": "https://p3-29u.anonymous.blankapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.p3-29u.anonymous.blankapp.exp.direct",
-  "ngrokPid": 2827
+  "packagerPid": 13725,
+  "expoServerNgrokUrl": "https://p3-29u.anonymous.blank-hub.exp.direct",
+  "packagerNgrokUrl": "https://packager.p3-29u.anonymous.blank-hub.exp.direct",
+  "ngrokPid": 13757,
+  "webpackServerPort": null
 }
