@@ -1,40 +1,78 @@
 import React,{ Component } from 'react';
-import {StyleSheet,Text,View,TouchableOpacity,Image} from 'react-native';
+import {StyleSheet,Text,View,TouchableOpacity,Image,TextInput} from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 export default class Header extends Component{
+    constructor(){
+        super();
+        this.state={
+            search: ''
+        }
+    }
+    updateSearch = search => {
+        this.setState({ search });
+    };
 	_onPressButton(){
 		console.log("this is press")
 	}
 	render(){
-		let img = {
-			uri:'https://cdn3.iconfinder.com/data/icons/mobile-friendly-ui/100/menu-512.png'
-		}
+        const { search } = this.state;
 		return(
-				<View style={style.container}>
-					<View style={style.content}>
-					<Text  onPress={this._onPressButton()} >this is header</Text>
-					<TouchableOpacity onPress={() => console.log("press")}>
-			          <Image
-			            source={{uri:'https://cdn3.iconfinder.com/data/icons/mobile-friendly-ui/100/menu-512.png'}}
-			            style={{ width: 25, height: 25}}
-			          />
-        			</TouchableOpacity>
+					<View style={style.container}>
+                        <View >
+                            <TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >
+                                <Image
+                                    source={{uri:'https://ebace.aero/wp-content/themes/EBACE2016/assets/hamburger.png'}}
+                                    style={{ width: 45, height: 45}}
+                                />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={style.title}>
+                            <TextInput
+                                style=
+                                    {{
+                                        height: 30, borderColor: 'gray', borderWidth: 1, color : "black",backgroundColor: 'white',paddingLeft: 5,
+                                    }}
+                                onChangeText={this.updateSearch}
+                                value={this.state.search}
+                                placeholder={'search....'}
+                            />
+                        </View>
+                        <View style={style.rightIcon}>
+                            <TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >
+                                <Image
+                                    source={{uri:'https://www.skylinetechnologies.com/SkylineTechnologies/media/DesignAssets/MiscIcons/Shopping-Cart-Icon2.png'}}
+                                    style={{ width: 45, height: 45}}
+                                />
+                            </TouchableOpacity>
+                        </View>
 					</View>
-				</View>
+
 			)
 	}
 }
 
 const style = StyleSheet.create({
 	container: {
-		marginTop: 20,
+		marginTop: 25,
 		padding: 10,
-		height: 50
+		height: 70,
+		flexDirection: 'row',
+        backgroundColor: '#212121'
 
 	},
-	content: {
-		flex: 1,
-		alignItems: 'center'
-	}
+	title: {
+      flex: 4,
+      paddingTop: 10,
+        flexDirection: 'column'
+    },
+    rightIcon: {
+        flex: 1,
+        // paddingTop: 10,
+        // flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems:'center'
 
-})
+    }
+
+});

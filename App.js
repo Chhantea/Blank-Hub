@@ -11,17 +11,17 @@ const MainNavigator = createStackNavigator(
     },
     {
         initialRouteName: 'Home',
-        defaultNavigationOptions: {
-            // headerStyle: {
-            //     navBarHidden: true
-            // },
-            // headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-                textAlign: 'center',
-                flex: 1
-            },
-        },
+        // defaultNavigationOptions: {
+        //     // headerStyle: {
+        //         navBarHidden: true,
+        //     // },
+        //     // headerTintColor: '#fff',
+        //     headerTitleStyle: {
+        //         fontWeight: 'bold',
+        //         textAlign: 'center',
+        //         flex: 1
+        //     }
+        // },
     }
 );
 const RootNavigator = createStackNavigator(
@@ -40,9 +40,8 @@ const RootNavigator = createStackNavigator(
     },
 );
 const MyDrawerNavigator = createDrawerNavigator({
-    Home: {
+    Menu: {
         screen: RootNavigator,
-        navigatorStyle: { navBarHidden: true }
     },
     drawer: {
         screen: DrawerMenu,

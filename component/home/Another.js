@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import {StyleSheet,Text,View,Button} from 'react-native';
+import Header from '.././shareComponent/header'
 
 export default class Another extends Component {
     constructor(props){
         super(props);
     }
     static navigationOptions = {
-        title: 'Another',
+        headerTitle: <Header/>,
         headerRight: (
             <Button
                 onPress={() => this.props.navigation.navigate('MyModal')}
