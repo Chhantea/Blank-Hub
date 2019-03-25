@@ -3,6 +3,19 @@ import {StyleSheet,Text,View,Button} from 'react-native';
 export default class HomeIndex extends Component {
     static navigationOptions = {
         title: 'Home',
+        headerRight: (
+            <View style={{flexDirection: 'row'}}>
+            <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+            />
+                <Button
+                    onPress={() => alert('This is another button!')}
+                    title="Another"
+                />
+            </View>
+
+        ),
     };
 	render(){
 		return(
@@ -23,6 +36,10 @@ export default class HomeIndex extends Component {
                         otherParam: 'anything you want here',
                     });
                 }}
+            />
+            <Button
+            title="drwaer"
+            onPress={()=>this.props.navigation.toggleDrawer()}
             />
          </View>
 			)

@@ -2,8 +2,17 @@ import React,{Component} from 'react';
 import {StyleSheet,Text,View,Button} from 'react-native';
 
 export default class Another extends Component {
+    constructor(props){
+        super(props);
+    }
     static navigationOptions = {
         title: 'Another',
+        headerRight: (
+            <Button
+                onPress={() => this.props.navigation.navigate('MyModal')}
+                title="Info"
+            />
+        ),
     };
 	render(){
         const { navigation } = this.props;
@@ -26,8 +35,8 @@ export default class Another extends Component {
                 onPress={() => this.props.navigation.navigate('Home')}
             />
             <Button
-                title="Go back"
-                onPress={() => this.props.navigation.goBack()}
+                title="Go modal"
+                onPress={() => this.props.navigation.navigate('MyModal')}
             />
 
             <Text>itemId: {JSON.stringify(itemId)}</Text>
