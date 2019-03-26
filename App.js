@@ -1,29 +1,42 @@
-import {createStackNavigator, createAppContainer, createDrawerNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createDrawerNavigator ,DrawerItems} from 'react-navigation';
 import HomeScreen from './component/home/index' ;
 import Another from './component/home/Another' ;
 import ModalScreen from './component/shareComponent/modal/ModalScreen';
-import DrawerMenu from './component/shareComponent/Drawer';
+import Menu from './component/Menu';
+import { Ionicons } from '@expo/vector-icons';
+import Sidebar from './component/sideBar';
+import Search from './component/Search/index';
+import {View,ScrollView,Text,StyleSheet} from 'react-native';
 
 const MainNavigator = createStackNavigator(
     {
-     Home: HomeScreen,
-    Another:  Another,
+        Home: HomeScreen,
+        Another:  Another,
+        Search: Search,
     },
     {
         initialRouteName: 'Home',
-        // defaultNavigationOptions: {
-        //     // headerStyle: {
-        //         navBarHidden: true,
-        //     // },
-        //     // headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //         fontWeight: 'bold',
-        //         textAlign: 'center',
-        //         flex: 1
-        //     }
-        // },
+        defaultNavigationOptions: {
+            headerStyle: {
+                // color: 'white',
+                backgroundColor: '#212121'
+            },
+            // headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                // textAlign: 'center',
+                // color: 'white',
+                flex: 1
+            },
+            headerTintColor: 'white',
+        },
     }
 );
+// const coustomDrawerStyle = (props)=>(
+//     <View>
+//         <DrawerItems {...props}/>
+//     </View>
+// )
 const RootNavigator = createStackNavigator(
     {
         Main: {
@@ -43,12 +56,9 @@ const MyDrawerNavigator = createDrawerNavigator({
     Menu: {
         screen: RootNavigator,
     },
-    drawer: {
-        screen: DrawerMenu,
-        style: {
-            leftDrawerWidth: 40,
-        }
-    },
+    drawer: {screen: Menu},
+},{
+    contentComponent: Sidebar
 });
 
 const App = createAppContainer(MyDrawerNavigator);

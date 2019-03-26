@@ -1,33 +1,44 @@
 import React,{Component} from 'react';
-import {StyleSheet,Text,View,Button,ScrollView} from 'react-native';
+import {StyleSheet,Text,View,Button,ScrollView,Picker,TouchableOpacity,Image} from 'react-native';
 import  Header from '.././shareComponent/header';
 
 export default class HomeIndex extends Component {
-    // static navigationOptions = {
-    //     headerTitle: <Header/>,
-    //     // headerRight: (
-    //     //     <View style={{flexDirection: 'row'}}>
-    //     //     <Button
-    //     //         onPress={() => alert('This is a button!')}
-    //     //         title="Info"
-    //     //     />
-    //     //         <Button
-    //     //             onPress={() => alert('This is another button!')}
-    //     //             title="Another"
-    //     //         />
-    //     //     </View>
-    //     //
-    //     // ),
-    // };
-    static navigationOptions = {
-        header: null,
-    };
+  constructor(props){
+      super(props);
+      this.state={}
+  }
+    static navigationOptions =({navigation})=> ({
+        header: <Header
+        nav={navigation}/>,
+        headerStyle: {
+            backgroundColor: "transparent"
+        }
+        //    navigation <--- same as this.props
+        // title: "Home",
+        // headerRight: (
+        //     <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+        //         <Image
+        //             source={{uri:'https://www.skylinetechnologies.com/SkylineTechnologies/media/DesignAssets/MiscIcons/Shopping-Cart-Icon2.png'}}
+        //             style={{ width: 50, height: 50}}
+        //         />
+        //     </TouchableOpacity>
+        // ),
+        // headerLeft: (
+        //     <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+        //         <Image
+        //             source={{uri:'https://ebace.aero/wp-content/themes/EBACE2016/assets/hamburger.png'}}
+        //             style={{ width: 50, height: 50}}
+        //         />
+        //     </TouchableOpacity>
+        // ),
+
+    });
 	render(){
 		return(
 		    <View >
-                <Header
-                nav = {this.props.navigation}
-                />
+                {/*<Header*/}
+                {/*nav = {this.props.navigation}*/}
+                {/*/>*/}
                 <ScrollView >
                     <View style={styles.container}>
                   <Text
@@ -51,7 +62,20 @@ export default class HomeIndex extends Component {
                     title="drwaer"
                     onPress={()=>this.props.navigation.toggleDrawer()}
                     />
+                        <Button
+                            title="drwaer"
+                            onPress={()=>this.props.navigation.toggleDrawer()}
+                        />
                     </View>
+                    <Picker
+                        selectedValue={this.state.language}
+                        style={{height: 40, width: 100}}
+                        onValueChange={(itemValue, itemIndex) =>
+                            this.setState({language: itemValue})
+                        }>
+                        <Picker.Item label="Java" value="java" />
+                        <Picker.Item label="JavaScript" value="js" />
+                    </Picker>
                  </ScrollView>
             </View>
 			)

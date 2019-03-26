@@ -3,7 +3,7 @@ import {StyleSheet,Text,View,TouchableOpacity,Image,TextInput,Picker} from 'reac
 // import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Ionicons } from '@expo/vector-icons';
 
-export default class Header extends Component{
+export default class SearchHeader extends Component{
     constructor(){
         super();
         this.state={
@@ -13,39 +13,18 @@ export default class Header extends Component{
     updateSearch = search => {
         this.setState({ search });
     };
-	_onPressButton(){
-		console.log("this is press")
-	}
-	render(){
+    _onPressButton(){
+        console.log("this is press")
+    }
+    render(){
         const { search } = this.state;
-		return(
-		    <View style={style.container}>
-					<View style={style.contRow}>
-                        <View >
-                            <TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >
-                                <Image
-                                    source={{uri:'https://ebace.aero/wp-content/themes/EBACE2016/assets/hamburger.png'}}
-                                    style={{ width: 50, height: 50}}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={style.title}>
-                            <Text style={{color: 'white'}}>Title</Text>
-                        </View>
-                        <View style={style.rightIcon}>
-                            <TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >
-                                <Image
-                                    source={{uri:'https://www.skylinetechnologies.com/SkylineTechnologies/media/DesignAssets/MiscIcons/Shopping-Cart-Icon2.png'}}
-                                    style={{ width: 50, height: 50}}
-                                />
-                            </TouchableOpacity>
-                        </View>
-					</View>
+        return(
+            <View style={style.container}>
                 <View style={(style.contRow2)}>
                     {/*<View style={style.leftSearch}>*/}
-                        {/*<TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >*/}
-                            {/*<Text style={{color:'white'}}>Button</Text>*/}
-                        {/*</TouchableOpacity>*/}
+                    {/*<TouchableOpacity onPress={() => this.props.nav.toggleDrawer()} >*/}
+                    {/*<Text style={{color:'white'}}>Button</Text>*/}
+                    {/*</TouchableOpacity>*/}
                     {/*</View>*/}
                     <View style={style.searchSection}>
                         <Ionicons style={style.searchIcon} name="md-search" size={30} color="grey" />
@@ -70,25 +49,25 @@ export default class Header extends Component{
                 </View>
             </View>
 
-			)
-	}
+        )
+    }
 }
 
 const style = StyleSheet.create({
-	container: {
-		marginTop: 25,
+    container: {
+        // marginTop: 25,
         backgroundColor: '#212121',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 5,
+            height: 1,
         },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
 
-        elevation: 11,
+        elevation: 2,
 
-	},
+    },
     contRow:{
         flexDirection: 'row',
         // padding: 10,
@@ -96,13 +75,11 @@ const style = StyleSheet.create({
     },
     contRow2:{
         flexDirection: 'row',
-        paddingBottom: 10,
-        paddingRight: 10,
-        paddingLeft: 10
+        padding: 10,
         // height: 70,
     },
-	title: {
-      flex: 4,
+    title: {
+        flex: 4,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems:'center'

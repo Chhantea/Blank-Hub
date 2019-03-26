@@ -1,20 +1,38 @@
 import React,{Component} from 'react';
-import {StyleSheet,Text,View,Button} from 'react-native';
-import Header from '.././shareComponent/header'
+import {StyleSheet,Text,View,Button,TouchableOpacity,Image} from 'react-native';
+import Header from '.././shareComponent/header';
 
 export default class Another extends Component {
     constructor(props){
         super(props);
+        this.state ={
+
+        }
     }
-    static navigationOptions = {
-        headerTitle: <Header/>,
+    static navigationOptions = ({navigation})=> ({
+        // header: <Header/>,
+        // headerStyle: {
+        //     backgroundColor: "transparent"
+        // }
+        //    navigation <--- same as this.props
+        title: "Title",
         headerRight: (
-            <Button
-                onPress={() => this.props.navigation.navigate('MyModal')}
-                title="Info"
-            />
+            <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+                <Image
+                    source={{uri:'https://www.skylinetechnologies.com/SkylineTechnologies/media/DesignAssets/MiscIcons/Shopping-Cart-Icon2.png'}}
+                    style={{ width: 50, height: 50}}
+                />
+            </TouchableOpacity>
         ),
-    };
+        headerLeft: (
+            <TouchableOpacity onPress={() => navigation.toggleDrawer()} >
+                <Image
+                    source={{uri:'https://ebace.aero/wp-content/themes/EBACE2016/assets/hamburger.png'}}
+                    style={{ width: 50, height: 50}}
+                />
+            </TouchableOpacity>
+        ),
+    });
 	render(){
         const { navigation } = this.props;
         const itemId = navigation.getParam('itemId', 'NO-ID');
