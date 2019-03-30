@@ -12,7 +12,6 @@ const MainNavigator = createStackNavigator(
     {
         Home: HomeScreen,
         Another:  Another,
-        Search: Search,
     },
     {
         initialRouteName: 'Home',
@@ -56,7 +55,7 @@ const MyDrawerNavigator = createDrawerNavigator({
     Menu: {
         screen: RootNavigator,
     },
-    drawer: {screen: Menu},
+    search: {screen: Search},
 },{
     contentComponent: Sidebar
 });
